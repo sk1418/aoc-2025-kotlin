@@ -24,7 +24,7 @@ fun main() {
     solve(Part2, input) { part2(it) }
 }
 
-class MatrixDay04(maxX: Int, maxY: Int, override val points: MutableNotNullMap<Point, Char>) : Matrix<Char>(maxX, maxY, points) {
+private class MatrixDay04(maxX: Int, maxY: Int, override val points: MutableNotNullMap<Point, Char>) : Matrix<Char>(maxX, maxY, points) {
 
     private fun accessibleRolls() = points.filter { (p, c) -> c == '@' && p.allAroundIn().count { points[it] == '@' } < 4 }.keys
     fun findRolls() = accessibleRolls().size
